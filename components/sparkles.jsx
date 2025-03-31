@@ -3,16 +3,6 @@
 import { useEffect, useRef, useState } from "react"
 import { useMousePosition } from "@/lib/hooks/use-mouse-position"
 
-interface SparklesProps {
-  id?: string
-  background?: string
-  minSize?: number
-  maxSize?: number
-  particleDensity?: number
-  className?: string
-  particleColor?: string
-}
-
 export const SparklesCore = ({
   id = "tsparticles",
   background = "transparent",
@@ -21,8 +11,8 @@ export const SparklesCore = ({
   particleDensity = 100,
   className = "h-full w-full",
   particleColor = "#FFFFFF",
-}: SparklesProps) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+}) => {
+  const canvasRef = useRef(null)
   const mousePosition = useMousePosition()
   const [dimensions, setDimensions] = useState({ width: 1200, height: 800 })
 
@@ -40,19 +30,13 @@ export const SparklesCore = ({
     const ctx = canvas.getContext("2d")
     if (!ctx) return
 
-    let particles: Particle[] = []
-    let animationFrameId: number
+    let particles = []
+    let animationFrameId
 
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
 
     class Particle {
-      x: number
-      y: number
-      size: number
-      speedX: number
-      speedY: number
-
       constructor() {
         this.x = Math.random() * canvas.width
         this.y = Math.random() * canvas.height
@@ -71,9 +55,12 @@ export const SparklesCore = ({
         if (this.y < 0) this.y = canvas.height
 
         // Mouse interaction
+        if (!mousePosition || mousePosition.x === undefined || mousePosition.y === undefined) return
+
         const dx = mousePosition.x - this.x
         const dy = mousePosition.y - this.y
         const distance = Math.sqrt(dx * dx + dy * dy)
+
         if (distance < 100) {
           const angle = Math.atan2(dy, dx)
           this.x -= Math.cos(angle) * 1
@@ -130,7 +117,7 @@ export const SparklesCore = ({
       window.removeEventListener("resize", handleResize)
       cancelAnimationFrame(animationFrameId)
     }
-  }, [maxSize, minSize, particleColor, particleDensity, mousePosition.x, mousePosition.y])
+  }, [maxSize, minSize, particleColor, particleDensity, mousePosition?.x, mousePosition?.y])
 
   return (
     <canvas
@@ -145,4 +132,3 @@ export const SparklesCore = ({
     />
   )
 }
-
