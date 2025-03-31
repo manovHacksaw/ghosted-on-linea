@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
@@ -9,16 +9,10 @@ import { Label } from "@/components/ui/label"
 import { Progress } from "@/components/ui/progress"
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"; // Card component for enhanced UI
 
-interface CareerAssessmentProps {
-  onSubmit: (data: any) => void
-}
 
-interface AnswerType {
-  question: string;
-  answer: string;
-}
 
-export function CareerAssessment({ onSubmit }: CareerAssessmentProps) {
+
+export function CareerAssessment({ onSubmit }) {
   const questions = [
     {
       id: "q1",
@@ -204,7 +198,7 @@ export function CareerAssessment({ onSubmit }: CareerAssessmentProps) {
   ]
 
   const [currentQuestion, setCurrentQuestion] = useState(0)
-  const [answers, setAnswers] = useState<Record<string, AnswerType>>({});
+  const [answers, setAnswers] = useState({});
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   useEffect(() => {
@@ -213,7 +207,7 @@ export function CareerAssessment({ onSubmit }: CareerAssessmentProps) {
     }
   }, [answers, formSubmitted, onSubmit])
 
-  const handleAnswer = (questionId: string, questionText: string, value: string) => {
+  const handleAnswer = (questionId, questionText, value) => {
     setAnswers((prevAnswers) => ({
       ...prevAnswers,
       [questionId]: { question: questionText, answer: value },
@@ -232,7 +226,7 @@ export function CareerAssessment({ onSubmit }: CareerAssessmentProps) {
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     setFormSubmitted(true)
     onSubmit({
