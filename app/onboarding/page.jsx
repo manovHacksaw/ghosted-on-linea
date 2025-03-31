@@ -9,7 +9,7 @@ import { ArrowLeft, CheckCircle } from "lucide-react"
 // Assuming these components are now also .jsx or .js
 import { EducationForm } from "./_components/education-form"
 import { CareerAssessment } from "./_components/carrer-assessment" // Corrected typo if needed: career-assessment
-import { ProcessingResults } from "./_components/processing-result" // Corrected typo if needed: processing-results
+
 import { ExperienceForm } from "./_components/experience-form"
 import { InterestsForm } from "./_components/interests-form"
 import { SkillsForm } from "./_components/skills-form"

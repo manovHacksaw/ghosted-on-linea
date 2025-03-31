@@ -46,7 +46,7 @@ export default function OnboardingPage() {
     error: contextError,
     txHash,
     isConfirming,
-    isConfirmed,
+    
     LINEA_CONFIG,
   } = useGhosted()
 

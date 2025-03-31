@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -8,11 +8,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { ArrowRight } from "lucide-react"
 
-interface ProfileFormProps {
-  onSubmit: (data: any) => void
-}
 
-export function ProfileForm({ onSubmit }: ProfileFormProps) {
+export function ProfileForm({ onSubmit }) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -21,12 +18,12 @@ export function ProfileForm({ onSubmit }: ProfileFormProps) {
     confirmPassword: "",
   })
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     onSubmit(formData)
   }

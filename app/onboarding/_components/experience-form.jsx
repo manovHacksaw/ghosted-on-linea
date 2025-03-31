@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -10,11 +10,9 @@ import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
 import { ArrowRight, Plus, Trash2 } from "lucide-react"
 
-interface ExperienceFormProps {
-  onSubmit: (data: any) => void
-}
 
-export function ExperienceForm({ onSubmit }: ExperienceFormProps) {
+
+export function ExperienceForm({ onSubmit }) {
   const [experiences, setExperiences] = useState([
     {
       title: "",
@@ -29,7 +27,7 @@ export function ExperienceForm({ onSubmit }: ExperienceFormProps) {
   const [noExperience, setNoExperience] = useState(false);
 
 
-  const handleChange = (index: number, field: string, value: string | boolean) => {
+  const handleChange = (index, field, value) => {
     const updatedExperiences = [...experiences]
     updatedExperiences[index] = { ...updatedExperiences[index], [field]: value }
     setExperiences(updatedExperiences)
@@ -51,14 +49,14 @@ export function ExperienceForm({ onSubmit }: ExperienceFormProps) {
     setNoExperience(false);
   }
 
-  const handleRemoveExperience = (index: number) => {
+  const handleRemoveExperience = (index) => {
     if (experiences.length > 1) {
       const updatedExperiences = experiences.filter((_, i) => i !== index)
       setExperiences(updatedExperiences)
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     onSubmit({ experiences: noExperience ? [] : experiences })
   }
@@ -119,7 +117,7 @@ export function ExperienceForm({ onSubmit }: ExperienceFormProps) {
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
                 <Label htmlFor={`start-date-${index}`} className="text-white">Start Date</Label>
-                <Input
+                <Inputinterface 
                   id={`start-date-${index}`}
 				    // Changed to type="date"
                   value={experience.startDate}

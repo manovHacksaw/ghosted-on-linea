@@ -12,7 +12,7 @@ export default function RedirectPage() {
     router.push('/'); // Redirect after successful login
   };
 
-  const loginError = (error) => {
+  const loginError = (error: any) => {
     console.error('Login error:', error);
   };
 
@@ -135,7 +135,7 @@ export default function RedirectPage() {
           </div>
           
           <h1 className="font-bold text-2xl mb-3 text-white text-center">
-            We won't ghost you! Authenticating{dots}
+            We won&apos;t ghost you! Authenticating{dots}
           </h1>
           
           <p className="italic text-white/60 text-sm mb-6 text-center">

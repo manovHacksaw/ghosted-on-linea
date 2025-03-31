@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -9,11 +9,9 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 
-interface InterestsFormProps {
-  onSubmit: (data: any) => void
-}
 
-export function InterestsForm({ onSubmit }: InterestsFormProps) {
+
+export function InterestsForm({ onSubmit }) {
   const interestCategories = [
     {
       name: "Technology",
@@ -69,10 +67,10 @@ export function InterestsForm({ onSubmit }: InterestsFormProps) {
     },
   ]
 
-  const [selectedInterests, setSelectedInterests] = useState<string[]>([])
+  const [selectedInterests, setSelectedInterests] = useState([])
   const [otherInterests, setOtherInterests] = useState("")
 
-  const handleInterestToggle = (interest: string) => {
+  const handleInterestToggle = (interest) => {
     if (selectedInterests.includes(interest)) {
       setSelectedInterests(selectedInterests.filter((i) => i !== interest))
     } else {
@@ -80,7 +78,7 @@ export function InterestsForm({ onSubmit }: InterestsFormProps) {
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     onSubmit({ selectedInterests, otherInterests })
   }
