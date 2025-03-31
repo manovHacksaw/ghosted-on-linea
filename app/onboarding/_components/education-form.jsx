@@ -1,7 +1,5 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -10,22 +8,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ArrowRight, Plus, Trash2 } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
 
-interface EducationFormProps {
-  onSubmit: (data: any) => void
-}
+// Removed EducationFormProps interface and type annotation from props
 
-interface Education {
-  institution: string;
-  city: string;
-  degree: string;
-  fieldOfStudy: string;
-  startYear: string;
-  endYear: string;
-  currentlyStudying: boolean;
-}
+// Removed Education interface and type annotation from useState
 
-export function EducationForm({ onSubmit }: EducationFormProps) {
-  const [educations, setEducations] = useState<Education[]>([
+export function EducationForm({ onSubmit }) {
+  const [educations, setEducations] = useState([
     {
       institution: "",
       city: "",
@@ -37,8 +25,10 @@ export function EducationForm({ onSubmit }: EducationFormProps) {
     },
   ])
 
-  const handleChange = (index: number, field: string, value: string | boolean) => {
+  // Removed type annotations from parameters: index, field, value
+  const handleChange = (index, field, value) => {
     const updatedEducations = [...educations]
+    // Use bracket notation for dynamic property access
     updatedEducations[index] = { ...updatedEducations[index], [field]: value }
     setEducations(updatedEducations)
   }
@@ -58,24 +48,28 @@ export function EducationForm({ onSubmit }: EducationFormProps) {
     ])
   }
 
-  const handleRemoveEducation = (index: number) => {
+  // Removed type annotation from parameter: index
+  const handleRemoveEducation = (index) => {
     if (educations.length > 1) {
       const updatedEducations = educations.filter((_, i) => i !== index)
       setEducations(updatedEducations)
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Removed type annotation from parameter: e
+  const handleSubmit = (e) => {
     e.preventDefault()
     onSubmit({ educations })
   }
 
-  const handleCurrentlyStudyingChange = (index: number, checked: boolean) => {
+  // Removed type annotations from parameters: index, checked
+  const handleCurrentlyStudyingChange = (index, checked) => {
     const updatedEducations = [...educations];
     updatedEducations[index] = {
       ...updatedEducations[index],
       currentlyStudying: checked,
-      endYear: checked ? "" : updatedEducations[index].endYear, // Clear endYear if checking, keep if unchecking
+      // Clear endYear if checking, keep if unchecking
+      endYear: checked ? "" : updatedEducations[index].endYear,
     };
     setEducations(updatedEducations);
   };
@@ -127,8 +121,10 @@ export function EducationForm({ onSubmit }: EducationFormProps) {
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2">
                 <Label htmlFor={`degree-${index}`} className="text-white">Degree</Label>
-                <Select onValueChange={(value) => handleChange(index, "degree", value)} defaultValue={education.degree}>
+                {/* Pass education.degree to defaultValue or value prop if Select supports it */}
+                <Select onValueChange={(value) => handleChange(index, "degree", value)} value={education.degree || ""}>
                   <SelectTrigger id={`degree-${index}`} className="bg-black/50 border-[#DDDDFB]/20 text-white">
+                    {/* Handle empty value case */}
                     <SelectValue placeholder="Select degree" />
                   </SelectTrigger>
                   <SelectContent className="bg-black/90 border-[#DDDDFB]/20">
@@ -188,8 +184,9 @@ export function EducationForm({ onSubmit }: EducationFormProps) {
               <Checkbox
                 id={`currently-studying-${index}`}
                 checked={education.currentlyStudying}
+                // onCheckedChange directly provides the boolean state
                 onCheckedChange={(checked) => {
-                    handleCurrentlyStudyingChange(index, checked || false);
+                    handleCurrentlyStudyingChange(index, checked);
                 }}
                 className="border-[#DDDDFB]/20 bg-black/50 text-white"
               />

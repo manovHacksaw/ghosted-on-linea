@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "checkJs": false,
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -21,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/onboarding/web3/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/onboarding/web3/page.jsx", "app/dashboard/page.jsx", "app/onboarding/_components/education-form.jsx"],
   "exclude": ["node_modules"]
 }
