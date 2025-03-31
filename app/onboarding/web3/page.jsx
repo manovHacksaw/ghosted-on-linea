@@ -353,7 +353,7 @@ export default function OnboardingPage() {
                       <div>
                         <AlertTitle className="text-blue-200 font-medium text-sm">Important</AlertTitle>
                         <AlertDescription className="flex flex-col gap-1">
-                          <span>You'll need some LineaETH to pay for transaction gas fees.</span>
+                          <span>You&apos;ll need some LineaETH to pay for transaction gas fees.</span>
                           <div>
                             <Button
                               variant="link"

@@ -129,10 +129,10 @@ export function EducationForm({ onSubmit }) {
                   </SelectTrigger>
                   <SelectContent className="bg-black/90 border-[#DDDDFB]/20">
                     <SelectItem value="high_school" className="text-white">High School</SelectItem>
-                    <SelectItem value="associate" className="text-white">Associate's Degree</SelectItem>
-                    <SelectItem value="bachelor" className="text-white">Bachelor's Degree</SelectItem>
-                    <SelectItem value="master" className="text-white">Master's Degree</SelectItem>
-                    <SelectItem value="doctorate" className="text-white">Doctorate</SelectItem>
+                    <SelectItem value="associate" className="text-white">Associate \'s Degree</SelectItem>
+                    <SelectItem value="bachelor" className="text-white">Bachelor &apos; s Degree</SelectItem>
+                    <SelectItem value="master" className="text-white">Master &apos; s Degree</SelectItem>
+                    <SelectItem value="doctorate" className="text-white">Doctorate </SelectItem>
                     <SelectItem value="other" className="text-white">Other</SelectItem>
                   </SelectContent>
                 </Select>

@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/onboarding/web3/page.jsx", "app/dashboard/page.jsx", "app/onboarding/_components/education-form.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/onboarding/web3/page.jsx", "app/dashboard/page.jsx", "app/onboarding/_components/education-form.jsx", "app/onboarding/_components/carrer-assessment.jsx"],
   "exclude": ["node_modules"]
 }

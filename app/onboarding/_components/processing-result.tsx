@@ -157,7 +157,7 @@ export const ProcessingResults = ({ formData }: { formData: any }) => {
           </div>
 
           <p className="text-sm text-muted-foreground italic">
-            This may take a minute or two. We're using advanced AI to provide you with the most accurate career
+            This may take a minute or two. We&apos;re using advanced AI to provide you with the most accurate career
             guidance.
           </p>
         </CardContent>

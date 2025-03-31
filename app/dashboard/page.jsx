@@ -19,11 +19,11 @@ import {
   ChevronRight,
   AlertCircle,
   Plus,
-  User,
-  Bell,
-  Settings,
-  ExternalLink,
-  Ghost,
+  
+  
+
+  ExternalLink
+
 } from "lucide-react"
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -41,10 +41,10 @@ import { WelcomePopup } from "./_components/WelcomePopup"
 
 
 export default function DashboardPage({ initialFormData }) {
-  const [insights, setInsights] = useState<CareerInsights | null>(null)
+  const [insights, setInsights] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-  const [formData, setFormData] = useState<any>(null)
+  const [error, setError] = useState(null)
+
 
   useEffect(() => {
     const fetchInsightsFromStorage = () => {
