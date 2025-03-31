@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Ghost, Menu, X, ChevronDown, LogOut, LogIn } from "lucide-react"
+import { Ghost, Menu, X, ChevronDown, LogOut } from "lucide-react"
 import Link from "next/link"
 import type React from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { useAccount, useConnect, useDisconnect } from "wagmi"
+import { motion } from "framer-motion"
+import { useAccount, useDisconnect } from "wagmi"
 import ConnectWalletButton from "./connect-wallet-button"
 
 export default function Navbar() {

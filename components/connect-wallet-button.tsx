@@ -10,7 +10,7 @@ export default function ConnectWalletButton() {
   const [isOpen, setIsOpen] = useState(false);
   const { connectors, connect } = useConnect();
 
-  const handleConnect = (connector) => {
+  const handleConnect = (connector: any) => {
     connect({ connector });
     setIsOpen(false);
   };
