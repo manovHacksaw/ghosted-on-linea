@@ -34,8 +34,8 @@ import { WelcomePopup } from "./_components/WelcomePopup"
 export default function DashboardPage() {
   const [insights, setInsights] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-  const [formData, setFormData] = useState(null)
+  // const [error, setError] = useState(null)
+  // const [formData, setFormData] = useState(null)
 
   useEffect(() => {
     const fetchInsightsFromStorage = () => {
