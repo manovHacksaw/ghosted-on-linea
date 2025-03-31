@@ -225,7 +225,7 @@ export function ExperienceForm({ onSubmit }) {
           className="border-[#DDDDFB]/30 data-[state=checked]:bg-[#00EDBE] data-[state=checked]:border-[#00EDBE] text-white focus:ring-1 focus:ring-offset-0 focus:ring-offset-black focus:ring-[#00EDBE]" // Adjusted styles
         />
         <Label htmlFor="no-experience" className="text-sm font-normal text-white cursor-pointer">
-          I don't have professional work experience yet
+          I don&apos;t have professional work experience yet
         </Label>
       </div>
 
